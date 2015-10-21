@@ -30,7 +30,7 @@ public class RunManager {
         Scanner in = new Scanner(System.in);
         while (true) {
             int choice = userMenu();
-            //Selection 1
+            /* Selection 1 */
             if (choice == 1) {
                 System.out.println("Enter the location of the run: ");
                 String lake = in.nextLine();
@@ -41,38 +41,24 @@ public class RunManager {
                 if (runData.get(lake) == null) {
                     runData.put(lake, new ArrayList<>());
                     runData.get(lake).add(time);
+                } else {
+                    runData.get(lake).add(time);
                 }
-                runData.get(lake).add(time);
-            } //Selection 2
-            else if (choice == 2) {
+            /* Selection 2 */
+            } else if (choice == 2) {
                 for (Map.Entry<String, ArrayList<Double>> lapTimes : runData.entrySet()) {
                     String lakes = lapTimes.getKey();
                     ArrayList times = lapTimes.getValue();
                     System.out.println("Lake " + lakes + ":\tTime: " + times);
                 }
-            } //Selection 3
-            else if (choice == 3) {
+            /* Selection 3 */
+            } else if (choice == 3) {
                 System.out.println();
-            } //Selection 4
-            else {
+            /* Selection 4 */
+            } else {
                 System.out.println("Exiting Program");
                 break;
             }
         }
     }
 }
-//            if (runData.containsKey(lake) ){
-//                //runData.put(lake, ArrayList.add(time));
-//                runData.get(lake).add(time);
-//                userMenu();
-//            }
-//            else {
-//                runData.put(lake, null);
-//                runData.put((lake), ArrayList.add(time));
-//                userMenu();
-//            }
-//            for (Map.Entry<String, ArrayList<Double>> lapTimes : runData.entrySet() ) {
-//                String lakes = lapTimes.getKey();
-//                ArrayList times = lapTimes.getValue();
-//                System.out.println("Lake " + lakes + ":\tTime: " + times);
-//            }
