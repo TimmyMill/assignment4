@@ -1,9 +1,6 @@
 package com.company;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class RunManager {
 
@@ -19,7 +16,7 @@ public class RunManager {
         System.out.println("(1) ENTER NEW RUN TIME: ");
         System.out.println("(2) PRINT TIMES FOR EACH LOCATION: ");
         System.out.println("(3) PRINT FASTEST TIME FOR EACH LOCATION: ");
-        System.out.println("(4) EXIT PROGRAM" + "\n:");
+        System.out.println("(4) EXIT PROGRAM\n");
 
         Scanner in = new Scanner(System.in);
         String choice = in.nextLine();
@@ -35,9 +32,8 @@ public class RunManager {
                 System.out.println("ENTER THE LAKE'S NAME: ");
                 String lake = in.nextLine().toUpperCase();
                 System.out.println("ENTER YOUR RUN TIME IN (MM:SS) FORMAT: ");
-                String t0 = in.nextLine();
-                String t1 = t0.replaceAll(":", "."); //replace ":" from user input with "."
-                double time = Double.parseDouble(t1); //convert user input to double
+                String str = in.nextLine().replace(":", "."); //replace ":" from user input with "."
+                double time = Double.parseDouble(str); //convert user input to double
                 if (runData.get(lake) == null) {
                     runData.put(lake, new ArrayList<>());
                     runData.get(lake).add(time);
@@ -51,22 +47,20 @@ public class RunManager {
                     ArrayList times = lapTimes.getValue();
                     System.out.println("LAKE " + lakes + "\nTIME(S):");
                     for (Object list : times) {
-                        String t = list.toString();
-                        String t2 = t.replace(".", ":");
-                        System.out.println(t2);
+                        String str = list.toString().replace(".", ":");
+                        System.out.println(str);
                     }
                 }
             /* Selection 3 */
-            } else /* Selection 4 */if (choice == 3)
+            } else if (choice == 3) {
                 for (Map.Entry<String, ArrayList<Double>> lapTimes : runData.entrySet()) {
                     String lakes = lapTimes.getKey();
                     ArrayList times = lapTimes.getValue();
-                    for (Object d : times) {
-                        System.out.println(d);
-                    }
-                    // System.out.println("Lake " + lakes + ":\tTime: " + times);
+                    Double fastest = (Double) Collections.min(times);
+                    System.out.println("FASTEST TIME FOR LAKE " + lakes + ": " + fastest);
                 }
-            else {
+            /* Selection 4 */
+            } else {
                 System.out.println("EXITING PROGRAM");
                 break;
             }
