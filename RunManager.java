@@ -56,7 +56,7 @@ public class RunManager {
                 for (Map.Entry<String, ArrayList<Double>> lapTimes : runData.entrySet()) {
                     String lakes = lapTimes.getKey();
                     ArrayList times = lapTimes.getValue();
-                    Double fastest = (Double) Collections.min(times);
+                    String fastest = Collections.min(times).toString().replace(".",":");
                     System.out.println("FASTEST TIME FOR LAKE " + lakes + ": " + fastest);
                 }
             /* Selection 4 */
