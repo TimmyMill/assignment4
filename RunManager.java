@@ -13,7 +13,7 @@ public class RunManager {
         userSelection();
     }
 
-    //User options menu
+    /* User options menu */
     public static int userMenu() {
         System.out.println("Run Time Analyzer\n" + "Please make a selection and press enter: ");
         System.out.println("(1) Enter new run time: ");
@@ -32,9 +32,9 @@ public class RunManager {
             int choice = userMenu();
             /* Selection 1 */
             if (choice == 1) {
-                System.out.println("Enter the location of the run: ");
-                String lake = in.nextLine();
-                System.out.println("Enter your run time in (mm:ss) format: ");
+                System.out.println("ENTER THE LAKE'S NAME: ");
+                String lake = in.nextLine().toUpperCase();
+                System.out.println("ENTER YOUR RUN TIME IN (MM:SS) FORMAT: ");
                 String t0 = in.nextLine();
                 String t1 = t0.replaceAll(":", "."); //replace ":" from user input with "."
                 double time = Double.parseDouble(t1); //convert user input to double
@@ -49,11 +49,15 @@ public class RunManager {
                 for (Map.Entry<String, ArrayList<Double>> lapTimes : runData.entrySet()) {
                     String lakes = lapTimes.getKey();
                     ArrayList times = lapTimes.getValue();
-                    System.out.println("Lake " + lakes + ":\tTime: " + times);
+                    System.out.println("LAKE " + lakes + ":\tTIME: " + times);
                 }
             /* Selection 3 */
             } else if (choice == 3) {
-                System.out.println();
+                for (Map.Entry<String, ArrayList<Double>> lapTimes : runData.entrySet()) {
+                    String lakes = lapTimes.getKey();
+                    ArrayList times = lapTimes.getValue();
+                    // System.out.println("Lake " + lakes + ":\tTime: " + times);
+                }
             /* Selection 4 */
             } else {
                 System.out.println("Exiting Program");
