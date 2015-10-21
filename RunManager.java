@@ -49,17 +49,24 @@ public class RunManager {
                 for (Map.Entry<String, ArrayList<Double>> lapTimes : runData.entrySet()) {
                     String lakes = lapTimes.getKey();
                     ArrayList times = lapTimes.getValue();
-                    System.out.println("LAKE " + lakes + ":\tTIME: " + times);
+                    System.out.println("LAKE " + lakes + "\nTIME(S):");
+                    for (Object list : times) {
+                        String t = list.toString();
+                        String t2 = t.replace(".", ":");
+                        System.out.println(t2);
+                    }
                 }
             /* Selection 3 */
-            } else if (choice == 3) {
+            } else /* Selection 4 */if (choice == 3)
                 for (Map.Entry<String, ArrayList<Double>> lapTimes : runData.entrySet()) {
                     String lakes = lapTimes.getKey();
                     ArrayList times = lapTimes.getValue();
+                    for (Object d : times) {
+                        System.out.println(d);
+                    }
                     // System.out.println("Lake " + lakes + ":\tTime: " + times);
                 }
-            /* Selection 4 */
-            } else {
+            else {
                 System.out.println("EXITING PROGRAM");
                 break;
             }
