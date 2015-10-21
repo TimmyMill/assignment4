@@ -15,11 +15,11 @@ public class RunManager {
 
     /* User options menu */
     public static int userMenu() {
-        System.out.println("Run Time Analyzer\n" + "Please make a selection and press enter: ");
-        System.out.println("(1) Enter new run time: ");
-        System.out.println("(2) Print times for each location: ");
-        System.out.println("(3) Print fastest times for each location: ");
-        System.out.println("(4) Exit program" + "\n:");
+        System.out.println("RUN TIME ANALYZER\n" + "PLEASE MAKE A SELECTION AND PRESS ENTER: ");
+        System.out.println("(1) ENTER NEW RUN TIME: ");
+        System.out.println("(2) PRINT TIMES FOR EACH LOCATION: ");
+        System.out.println("(3) PRINT FASTEST TIME FOR EACH LOCATION: ");
+        System.out.println("(4) EXIT PROGRAM" + "\n:");
 
         Scanner in = new Scanner(System.in);
         String choice = in.nextLine();
@@ -60,7 +60,7 @@ public class RunManager {
                 }
             /* Selection 4 */
             } else {
-                System.out.println("Exiting Program");
+                System.out.println("EXITING PROGRAM");
                 break;
             }
         }
